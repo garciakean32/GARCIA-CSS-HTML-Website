@@ -1,0 +1,169 @@
+body,
+html {
+
+    padding: 0px;
+    margin: 0px;
+
+}
+
+body {
+
+    background-color: grey;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+
+.business-name {
+    display: flex;
+    color: rgb(193, 241, 224);
+    justify-content: center;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 40px;
+    margin: 50px;
+    text-shadow: 0 0 40px black;
+
+
+}
+
+
+.topBar {
+
+    background-color: black;
+    box-shadow: 0 0 8px black;
+    margin: 50px;
+
+}
+
+.topBar-button {
+
+    display: flex;
+    color: white;
+    text-align: center;
+    display: inline-block;
+
+}
+
+
+
+
+.topBar-button-home {
+
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 20px;
+    padding-right: 100px;
+    padding-left: 100px;
+    font-size: 30px;
+    cursor: pointer;
+
+}
+
+.topBar-button-home:hover {
+
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 20px;
+    padding-right: 100px;
+    padding-left: 100px;
+    font-size: 30px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+
+}
+
+
+.topBar-button-products {
+
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 20px;
+    padding-right: 90px;
+    padding-left: 90px;
+    font-size: 30px;
+    cursor: pointer;
+
+}
+
+.topBar-button-products:hover {
+
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 20px;
+    padding-right: 90px;
+    padding-left: 90px;
+    font-size: 30px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+
+}
+
+.topBar-button-about {
+
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 20px;
+    padding-right: 70px;
+    padding-left: 70px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.topBar-button-about:hover {
+
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 20px;
+    padding-right: 70px;
+    padding-left: 70px;
+    font-size: 30px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.topBar-button-contact {
+
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 20px;
+    padding-right: 90px;
+    padding-left: 90px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.topBar-button-contact:hover {
+
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 20px;
+    padding-right: 90px;
+    padding-left: 90px;
+    font-size: 30px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+
+.topBar-button-search {
+
+    display: flex;
+    background-color: white;
+    color: grey;
+    border: none;
+    padding: 10px;
+    margin: 15px;
+    /* padding-right: 100px;
+    padding-left: 100px; */
+    font-size: 30px;
+    cursor: auto;
+}
