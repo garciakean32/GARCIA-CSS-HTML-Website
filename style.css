@@ -6,7 +6,11 @@ html {
 }
 
 body {
-    background-color: grey;
+    background-image: url(page-bg.jpg);
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     padding-top: 50px;
@@ -19,11 +23,11 @@ body {
 
 .business-name {
     display: flex;
-    color: rgb(193, 241, 224);
+    color: rgb(255, 255, 255);
     justify-content: center;
     font-family: "Lucida Console", "Courier New", monospace;
-    font-size: 3vw;
-    text-shadow: 0 0 40px black;
+    font-size: 3.5vw;
+    text-shadow: 0 0 30px rgb(0, 0, 0);
 }
 
 
@@ -99,6 +103,17 @@ body {
     width: 20vw;
     font-size: 1.6vw;
     border-radius: 25px;
+}
+
+.website-content-text {
+    margin: 5vw;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 2vw;
+    line-height: 6vh;
+    color: whitesmoke;
+    text-shadow: 0 0 30px black;
+
+
 }
 
 @media screen {}
