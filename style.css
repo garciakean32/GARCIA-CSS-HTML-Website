@@ -7,13 +7,12 @@ html {
 
 body {
     background-image: url(page-bg.jpg);
-
+    min-height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    padding-top: 50px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -23,6 +22,7 @@ body {
 
 .business-name {
     display: flex;
+    margin-top: 50px;
     color: rgb(255, 255, 255);
     justify-content: center;
     font-family: "Lucida Console", "Courier New", monospace;
@@ -37,7 +37,7 @@ body {
     align-items: center;
     background-color: black;
     box-shadow: 0 0 8px black;
-    margin: auto 50px;
+    margin: 0 50px;
     padding: 0 1vw;
     padding-left: 0vw;
     color: white;
@@ -109,7 +109,7 @@ body {
     margin: 5vw;
     font-family: "Lucida Console", "Courier New", monospace;
     font-size: 2vw;
-    line-height: 6vh;
+    line-height: 40px;
     color: whitesmoke;
     text-shadow: 0 0 30px black;
 
