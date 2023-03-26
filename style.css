@@ -49,10 +49,8 @@ body {
     color: white;
     border: none;
     padding: 1vw 1.5vw;
-    
     cursor: pointer;
     transition-duration: 0.4s;
-    height: 100%;
 }
 
 
