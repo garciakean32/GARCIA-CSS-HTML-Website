@@ -2,13 +2,20 @@
 <html>
 
 <head>
-
+    <title>index</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="css/index-style.css">
 </head>
 
 <body>
+    <div class="login-registration-bar ">
+        <button class="topBar-button-signup" onclick="index_signup()">
+            Sign up
+        </button>
+        <button class="topBar-button-login" onclick="index_login()">
+            Login
+        </button>
+    </div>
     <div class="business-name">
         <h1>
             GARCIA Hoodies
@@ -27,6 +34,9 @@
             </button>
             <button class="topBar-button-contact">
                 Contact
+            </button>
+            <button class="topBar-button-contact">
+                Users
             </button>
         </div>
         <input class="topBar-button-search" placeholder="Search..." />
@@ -57,6 +67,8 @@
         </p>
 
     </div>
+    
+    <script src="js/index.js"></script>
 </body>
 
 </html>

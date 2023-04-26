@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/login-style.css">
+
+</head>
+
+<body>
+    <div class="form-container p-5 rounded">
+        <div class="d-flex flex-column justify-content-center">
+            <h1 class="text-center">Login Page</h1>
+            <div class="form">
+                <input class="form-control" type="text" id="username" placeholder="username" />
+                <input class="form-control" type="password" id="password" placeholder="password" />
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="registration.html">Register</a>
+                    <button class="btn btn-primary" onclick="login()">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+
+</html>

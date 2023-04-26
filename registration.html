@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/text-area-bootstrap-fix.css">
+    <link rel="stylesheet" href="css/registrion-style.css">
+
+</head>
+
+<body>
+    <div class="form-container p-5 rounded">
+        <div class="d-flex flex-column justify-content-center">
+            <h1 class="text-center">Registration Page</h1>
+            <div class="form">
+                <h4>Login data</h4>
+                <div class="form-floating">
+                    <input class="form-control" id="username" placeholder="Username">
+                    <label for="username">Username</label>
+                </div>
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="password" placeholder="password">
+                    <label for="password">Password</label>
+                </div>
+                <h4>Personal data</h4>
+                <div class="form-floating">
+                    <input class="form-control" id="fullname" placeholder="Fullname">
+                    <label for="fullname">Fullname</label>
+                </div>
+                <!-- <div class="form-floating">
+                    <select class="form-select" id="gender">
+                        <option selected hidden>Select</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    <label for="gender">Gender</label>
+                </div>
+                <div class="form-floating">
+                    <textarea class="form-control" maxlength='300' placeholder="Tell me about your self"
+                        id="description" style="height: 100px;resize: none;"></textarea>
+                    <label for="description">Tell me about your self</label>
+                </div> -->
+                <button class="btn btn-success" onclick="register()">Register</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/registration.js"></script>
+</body>
+
+</html>
