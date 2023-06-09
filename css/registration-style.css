@@ -3,49 +3,60 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
     overflow-y: hidden;
-    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    padding: 0px;
+    margin: 0px;
 }
 
 .form-container {
     display: flex;
-    text-align: center;
+    align-items: center;
     justify-content: center;
     padding: 0px 30px 20px 30px;
     border-radius: 10px;
+    color: white;
     background-color: rgba(0, 0, 0);
 }
 
 .text-h1 {
-    font-size: 60px;
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
     color: white;
+}
+
+h4 {
+    font-size: 25px;
+    color: white;
+    text-align: center;
+}
+
+label {
+    font-size: 15px;
+    color: white;
+    font-weight: 600;
 }
 
 .form {
     display: flex;
     flex-direction: column;
-    gap: 7px;
+    gap: 20px;
+    gap: 5px;
 }
 
-label {
-    text-align: left;
-    font-size: 15px;
-    color: white;
-    font-weight: 600;
-} 
-
-.input-user-pass {
+.inputClass {
     padding: 5px 10px;
     font-size: 30px;
     border-radius: 5px;
     border: none;
 }
 
-.loginBtn {
+.registerBtn {
     color: white;
     padding: 5px 10px;
     font-size: 30px;
@@ -57,19 +68,6 @@ label {
     margin-top: 25px;
 }
 
-.loginBtn:hover {
+.registerBtn:hover {
     background-color:  rgb(27, 126, 219);
 }
-
-.register-link {
-    color: rgb(74, 76, 214);
-    font-size: 20px;
-    padding: 10px 0px 0px 0px;
-}
-
-.register-link:hover {
-    color: rgb(27, 126, 219);
-}
-
-
-

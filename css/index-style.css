@@ -19,8 +19,8 @@ body {
 
 }
 
-.login-registration-bar {
-    position:fixed;
+.user-index-logged-in {
+    position: fixed;
     top: 0;
     right: 0px;
     display: flex;
@@ -29,29 +29,29 @@ body {
     background-color: black;
     box-shadow: 0 0 12px black;
     color: white;
-    width: 18.9vw;
+    padding-left: 15px;
+    gap: 15px;
     border-bottom-left-radius: 10px;
 }
 
-.topBar-button-signup {
+.user-index {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 1vw 1.5vw;
+    transition-duration: 0.4s;
+    font-size: 1.5vw;
+    border-bottom-left-radius: 10px;
+}
+
+.user-index-button-logout {
     background-color: black;
     color: white;
     border: none;
     padding: 1vw 1.5vw;
     cursor: pointer;
     transition-duration: 0.4s;
-    font-size: 2.2vw;
-    border-bottom-left-radius: 10px;
-}
-
-.topBar-button-login {
-    background-color: black;
-    color: white;
-    border: none;
-    padding: 1vw 1.5vw;
-    cursor: pointer;
-    transition-duration: 0.4s;
-    font-size: 2.2vw;
+    font-size: 1.5vw;
 }
 
 .business-name {
@@ -122,7 +122,7 @@ body {
     height: 100%;
 }
 
-.topBar-button-signup:hover, .topBar-button-login:hover, .topBar-button-contact:hover, .topBar-button-about:hover, .topBar-button-products:hover, .topBar-button-home:hover {
+.user-index-button-logout:hover, .topBar-button-contact:hover, .topBar-button-about:hover, .topBar-button-products:hover, .topBar-button-home:hover {
     background-color: white;
     color: black;
 }
