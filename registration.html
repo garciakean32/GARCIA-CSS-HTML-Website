@@ -4,23 +4,33 @@
 <head>
     <title>Registration</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/registration-style.css">
 </head>
 
 <body>
     <div class="form-container">
         <div>
-            <h1 class="text-h1">Registration Page</h1>
+            <button class="arrow-back fa fa-arrow-left" id="arrowBack"></button>
+            <div class="arrow-h1">
+                <h1 class="text-h1">Registration Page</h1>
+            </div>
             <div class="form">
                 <h4>Login data</h4>
-                <label for="username">Username</label>
-                <input class="inputClass" id="username" placeholder="set username">
+                <label for="email">E-mail</label>
+                <label id="emailError" class="input-error">E-mail input cannot be empty *</label>
+                <input type="email" class="inputClass" id="email" placeholder="set email">
                 <label for="password">Password</label>
+                <label id="passwordError" class="input-error">Password input cannot be empty *</label>
                 <input type="password" class="inputClass" id="password" placeholder="set password">
+                <label for="password">Confirm Password</label>
+                <label id="confirmPasswordError" class="input-error"></label>
+                <input type="password" class="inputClass" id="confirmPassword" placeholder="confirm set password">
                 <h4>Personal data</h4>
                 <label for="name">Name</label>
+                <label id="nameError" class="input-error">Name input cannot be empty *</label>
                 <input class="inputClass" id="fullname" placeholder="enter your name">
-                <button class="registerBtn" onclick="register()">Register</button>
+                <button type="submit" class="registerBtn" id="register">Register</button>
             </div>
         </div>
     </div>

@@ -21,13 +21,41 @@ body {
     border-radius: 10px;
     color: white;
     background-color: rgba(0, 0, 0);
+    box-shadow: 0 0 4px black;
 }
+
+.arrow-back {
+    color: white;
+    padding: 7px 19px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color:  rgb(21, 109, 192);
+    cursor: pointer;
+    transition: .1s;
+    box-shadow: 0px 2px 0px grey;
+    margin-top: 30px;
+}
+
+.arrow-back:hover {
+    background-color:  rgb(28, 140, 245);
+}
+
+.arrow-back:active {
+    background-color:  rgb(17, 87, 153);
+    box-shadow: 0px 0px 0px grey;
+    transform: translateY(2px);
+}
+
+
 
 .text-h1 {
     display: flex;
     justify-content: center;
     font-size: 40px;
     color: white;
+    text-shadow: 1px 1px 3px white;
 }
 
 h4 {
@@ -40,6 +68,13 @@ label {
     font-size: 15px;
     color: white;
     font-weight: 600;
+}
+
+.input-error {
+    font-size: 10px;
+    color: rgb(255, 0, 0);
+    font-weight: 600;
+    display: none;
 }
 
 .form {
@@ -62,12 +97,19 @@ label {
     font-size: 30px;
     border-radius: 5px;
     border: none;
-    background-color:  rgb(17, 94, 165);
+    background-color:  rgb(21, 109, 192);
     cursor: pointer;
-    transition: .2s;
+    transition: .1s;
     margin-top: 25px;
 }
 
 .registerBtn:hover {
-    background-color:  rgb(27, 126, 219);
+    background-color:  rgb(28, 140, 245);
+    box-shadow: 0px 2px 0px grey;
+}
+
+.registerBtn:active {
+    background-color:  rgb(17, 87, 153);
+    box-shadow: 0 0px 0px grey;
+    transform: translateY(2px);
 }
