@@ -1,64 +1,90 @@
-const setEmail = document.getElementById("email");
-const setPassword = document.getElementById("password");
+const inputEmail = document.getElementById("email");
+const inputPassword = document.getElementById("password");
 
-const emailError = document.getElementById("emailError");
-const passwordError = document.getElementById("passwordError");
+const lblEmailError = document.getElementById("emailError");
+const lblPasswordError = document.getElementById("passwordError");
 
 const loginUser = document.getElementById("login");
 
-loginUser.addEventListener("click", function (e) {
-    e.preventDefault();
+function handleKeyDown(e, onKeyDownID) {
+    if (e.key === "Enter") {
+        return login()
+    }
+    const lblInputError = document.getElementById(onKeyDownID);
+    lblInputError.style.display = "none";
+}
 
-    emailStorage = localStorage.getItem("email");
-    passwordStorage = localStorage.getItem("password");
-    emailValue = setEmail.value.trim();
-    passwordValue = setPassword.value.trim();
-
-    if (setEmail.value == "") {
-        emailError.innerHTML = "E-mail input cannot be empty *";
-        setEmail.style.border = "2px solid red";
-        setPassword.style.border = "0px solid red";
-        emailError.style.display = "block";
-        passwordError.style.display = "none";
-        return false;
+function handleEmailValidation() {
+    if (inputEmail.value == "") {
+        return setError(inputEmail, lblEmailError, 'email', "E-mail input cannot be empty")
     }
 
-    else if (emailValue != emailStorage) {
-        setPassword.value = "";
-        emailError.innerHTML = "Incorrect Email *";
-        setEmail.style.border = "2px solid red";
-        setPassword.style.border = "0px solid red";
-        emailError.style.display = "block";
-        passwordError.style.display = "none";
-        return false;
+    if (!(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g).test(inputEmail.value)) {
+        return setError(inputEmail, lblEmailError, 'email', "E-mail input must be an email")
     }
 
-    else {
-        emailError.style.display = "none";
-        setEmail.style.border = "none";
-    }
 
-    if (setPassword.value == "") {
-        passwordError.innerHTML = "Password input cannot be empty *";
-        setPassword.style.border = "2px solid red";
-        passwordError.style.display = "block";
-        return false;
-    }
+    lblEmailError.style.display = "none";
+    inputEmail.style.border = "none";
+    emailError = false
+}
 
-    else if (passwordValue != passwordStorage) {
-        setPassword.value = "";
-        passwordError.innerHTML = "Incorrect Password *";
-        setPassword.style.border = "2px solid red";
-        passwordError.style.display = "block";
-        return false;
+function handlePasswordValidation() {
+    if (inputPassword.value == "") {
+        return setError(inputPassword, lblPasswordError, 'password', "Password input cannot be empty")
     }
+    const users = JSON.parse(localStorage.getItem("users"))
+    if (users?.find(user => user.password === inputPassword.value))
 
-    else {
-        passwordError.style.display = "none";
-        setPassword.style.border = "none";
-    }
+        inputPassword.style.border = "none";
+    lblPasswordError.style.display = "none";
+    passwordError = false
+}
 
-    if (emailValue == emailStorage && passwordValue == passwordStorage) {
-        return window.location.replace("homepage.html");
+function findUser() {
+
+    const users = JSON.parse(localStorage.getItem("users"))
+    const user = users?.find(user => user.email === inputEmail.value && user.password === inputPassword.value)
+
+    if (!user) {
+        setError(inputEmail, lblEmailError, 'email', "Username may be incorrect")
+        setError(inputPassword, lblPasswordError, 'password', "Password may be incorrect")
+        inputPassword.value = ""
+        return
     }
-});
+    return user
+}
+
+function setError(inputElem, lblElem, errorType, errorName) {
+    inputElem.style.border = "2px solid red";
+    lblElem.style.display = 'block';
+    lblElem.style.color = 'rgb(255, 0, 0)';
+    lblElem.innerHTML = errorName;
+
+    switch (errorType) {
+        case 'email':
+            emailError = true
+            break;
+        case 'password':
+            passwordError = true
+            break;
+        default:
+    }
+}
+
+function login() {
+
+    handleEmailValidation()
+    handlePasswordValidation()
+
+    const haveError = emailError || passwordError
+    if (haveError) return;
+
+    const user = findUser()
+
+    if (!haveError && user) {
+        localStorage.setItem("loggedInUser", user.name);
+        window.location.replace("homepage.html");
+        return alert("LOGIN SUCCESSFUL");
+    }
+}

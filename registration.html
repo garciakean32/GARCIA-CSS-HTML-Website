@@ -11,26 +11,31 @@
 <body>
     <div class="form-container">
         <div>
-            <button class="arrow-back fa fa-arrow-left" id="arrowBack"></button>
+            <button class="arrow-back fa fa-arrow-left" id="arrowBack" onclick="previousPage()"></button>
             <div class="arrow-h1">
                 <h1 class="text-h1">Registration Page</h1>
             </div>
             <div class="form">
                 <h4>Login data</h4>
-                <label for="email">E-mail</label>
-                <label id="emailError" class="input-error">E-mail input cannot be empty *</label>
-                <input type="email" class="inputClass" id="email" placeholder="set email">
-                <label for="password">Password</label>
-                <label id="passwordError" class="input-error">Password input cannot be empty *</label>
-                <input type="password" class="inputClass" id="password" placeholder="set password">
-                <label for="password">Confirm Password</label>
+                <label class="input-label" for="email">E-mail <span class="required-symbol">*</span></label>
+                <input type="email" class="inputClass" id="email" placeholder="set email"
+                    onkeydown="handleKeyDown('emailError')">
+                <label id="emailError" class="input-error">E-mail input cannot be empty</label>
+                <label class="input-label" for="password">Password <span class="required-symbol">*</span></label>
+                <input type="password" class="inputClass" id="password" placeholder="set password"
+                    onkeydown="handleKeyDown('passwordError')">
+                <label id="passwordError" class="input-error">Password input cannot be empty</label>
+                <label class="input-label" for="password">Confirm Password <span
+                        class="required-symbol">*</span></label>
+                <input type="password" class="inputClass" id="confirmPassword" placeholder="confirm set password"
+                    onkeydown="handleKeyDown('confirmPasswordError')">
                 <label id="confirmPasswordError" class="input-error"></label>
-                <input type="password" class="inputClass" id="confirmPassword" placeholder="confirm set password">
                 <h4>Personal data</h4>
-                <label for="name">Name</label>
-                <label id="nameError" class="input-error">Name input cannot be empty *</label>
-                <input class="inputClass" id="fullname" placeholder="enter your name">
-                <button type="submit" class="registerBtn" id="register">Register</button>
+                <label class="input-label" for="name">Name <span class="required-symbol">*</span></label>
+                <input class="inputClass" id="fullname" placeholder="enter your name"
+                    onkeydown="handleKeyDown('nameError')">
+                <label id="nameError" class="input-error">Name input cannot be empty</label>
+                <button type="submit" onclick="handleRegister()" class="registerBtn" id="register">Register</button>
             </div>
         </div>
     </div>

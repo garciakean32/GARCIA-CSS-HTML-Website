@@ -1,13 +1,16 @@
 const userName = document.getElementById("userName");
 
 // user's name will appear on the page
-fullNameStorage = localStorage.getItem("fullname");
-userName.innerHTML = "Welcome, " + fullNameStorage;
+const loggedInUser = localStorage.getItem("loggedInUser");
+if (loggedInUser) {
+    userName.innerHTML = "Welcome, " + loggedInUser;
+}
 
-const logOut = document.getElementById("logout");
+if (!loggedInUser) {
+    window.location.replace("index.html");
+}
 
-logOut.addEventListener("click", LoggingOut);
-
-function LoggingOut() {
+function logOut() {
+    localStorage.removeItem("loggedInUser");
     window.location.replace("index.html");
 };

@@ -94,3 +94,7 @@ label {
     text-shadow: 0 0px 0px grey;
     transform: translateY(2px);
 }
+
+.required-symbol {
+    color: rgb(255, 123, 0)
+}

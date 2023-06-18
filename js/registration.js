@@ -1,83 +1,122 @@
-const setEmail = document.getElementById("email");
-const setPassword = document.getElementById("password");
-const setConfirmPassword = document.getElementById("confirmPassword");
-const setFullname = document.getElementById("fullname");
+const inputSetEmail = document.getElementById("email");
+const inputSetPassword = document.getElementById("password");
+const inputSetConfirmPassword = document.getElementById("confirmPassword");
+const inputSetFullname = document.getElementById("fullname");
 
-const emailError = document.getElementById("emailError");
-const passwordError = document.getElementById("passwordError");
-const confirmPasswordError = document.getElementById("confirmPasswordError");
-const nameError = document.getElementById("nameError");
-
-const registerUser = document.getElementById("register");
-
-const back = document.getElementById("arrowBack");
-
-back.addEventListener("click", previousPage);
+const lblEmailError = document.getElementById("emailError");
+const lblPasswordError = document.getElementById("passwordError");
+const lblConfirmPasswordError = document.getElementById("confirmPasswordError");
+const lblNameError = document.getElementById("nameError");
 
 function previousPage() {
     window.location.replace("index.html");
 };
 
-registerUser.addEventListener("click", function (e) {
-    e.preventDefault();
+let emailError = false
+let passwordError = false
+let confirmPasswordError = false
+let nameError = false
 
-    if (setEmail.value == "") {
-        setEmail.style.border = "2px solid red";
-        emailError.style.display = "block"
-        return false;
-    }
-    else {
-        emailError.style.display = "none";
-        setEmail.style.border = "none";
-    }
+function handleKeyDown(onKeyDownID) {
+    const lblInputError = document.getElementById(onKeyDownID);
+    lblInputError.style.display = "none";
+}
 
-    if (setPassword.value == "") {
-        setPassword.style.border = "2px solid red";
-        passwordError.style.display = "block"
-        return false;
-    }
-    else {
-        passwordError.style.display = "none";
-        setPassword.style.border = "none";
+function handleEmailValidation() {
+    if (inputSetEmail.value == "") {
+        return setError(inputSetEmail, lblEmailError, 'email', "E-mail input cannot be empty")
     }
 
-    if (setConfirmPassword.value == "") {
-        confirmPasswordError.innerHTML = "Confirm password cannot be empty *";
-        setConfirmPassword.style.border = "2px solid red";
-        confirmPasswordError.style.display = "block"
-        return false;
+    if (!(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g).test(inputSetEmail.value)) {
+        return setError(inputSetEmail, lblEmailError, 'email', "E-mail input must be an email")
     }
 
-    else if (setConfirmPassword.value != setPassword.value) {
-        confirmPasswordError.innerHTML = "Incorrect confirm password *";
-        setConfirmPassword.style.border = "2px solid red";
-        confirmPasswordError.style.display = "block"
-        return false;
+    const users = JSON.parse(localStorage.getItem("users"))
+    if (users?.find(user => user.email === inputSetEmail.value)) {
+        return setError(inputSetEmail, lblEmailError, 'email', "E-mail already exist")
     }
 
-    else {
-        setConfirmPassword.style.border = "none";
-        confirmPasswordError.style.display = "none";
+    lblEmailError.style.display = "none";
+    inputSetEmail.style.border = "none";
+    emailError = false
+}
+
+function handlePasswordValidation() {
+    if (inputSetPassword.value == "") {
+        return setError(inputSetPassword, lblPasswordError, 'password', "Password input cannot be empty")
     }
 
-    if (setFullname.value == "") {
-        setFullname.style.border = "2px solid red";
-        nameError.style.display = "block"
-        return false;
-    }
-    else {
-        emailValue = setEmail.value.trim();
-        localStorage.setItem("email", emailValue);
-        passwordValue = setPassword.value.trim();
-        localStorage.setItem("password", passwordValue);
-        fullnameValue = setFullname.value.trim();
-        localStorage.setItem("fullname", fullnameValue);
-        nameError.style.display = "none";
-        setFullname.style.border = "none";
-    }
+    inputSetPassword.style.border = "none";
+    lblPasswordError.style.display = "none";
+    passwordError = false
+}
 
-    if (setEmail.value != "" && setPassword.value != "" && setConfirmPassword.value != "" && setFullname.value != "") {
+function handleConfirmPasswordValidation() {
+    if (inputSetConfirmPassword.value == "") {
+        return setError(inputSetConfirmPassword, lblConfirmPasswordError, 'confirmPassword', "Confirm Password input cannot be empty")
+    }
+    if (inputSetConfirmPassword.value != inputSetPassword.value) {
+        inputSetConfirmPassword.value = "";
+        return setError(inputSetConfirmPassword, lblConfirmPasswordError, 'confirmPassword', "Password did not match")
+    }
+    inputSetConfirmPassword.style.border = "none";
+    lblConfirmPasswordError.style.display = "none";
+    confirmPasswordError = false
+}
+
+function handleNameValidation() {
+    if (inputSetFullname.value == "") {
+        return setError(inputSetFullname, lblNameError, 'name', "Name input cannot be empty")
+    }
+    lblNameError.style.display = "none";
+    inputSetFullname.style.border = "none";
+    nameError = false
+
+}
+
+function setError(inputElem, lblElem, errorType, errorName) {
+    inputElem.style.border = "2px solid red";
+    lblElem.style.display = 'block'
+    lblElem.style.color = 'rgb(255, 0, 0)'
+    lblElem.innerHTML = errorName
+
+    switch (errorType) {
+        case 'email':
+            emailError = true
+            break;
+        case 'password':
+            passwordError = true
+            break;
+        case 'confirmPassword':
+            confirmPasswordError = true
+            break;
+        case 'name':
+            nameError = true
+            break;
+        default:
+    }
+}
+
+function handleRegister() {
+    handleEmailValidation()
+    handlePasswordValidation()
+    handleConfirmPasswordValidation()
+    handleNameValidation()
+
+    const haveError = emailError || passwordError || confirmPasswordError || nameError
+
+    if (!haveError) {
+        const user = {
+            email: inputSetEmail.value.trim(),
+            password: inputSetPassword.value.trim(),
+            name: inputSetFullname.value.trim()
+        }
+
+        let users = JSON.parse(localStorage.getItem("users"))
+        if (!users) users = []
+        users.push(user)
+        localStorage.setItem("users", JSON.stringify(users));
         window.location.replace("index.html");
         return alert("REGISTRATION SUCCESSFUL");
     }
-});
+}
