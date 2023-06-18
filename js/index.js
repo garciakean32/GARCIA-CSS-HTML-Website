@@ -6,6 +6,12 @@ const lblPasswordError = document.getElementById("passwordError");
 
 const loginUser = document.getElementById("login");
 
+const loggedInUser = localStorage.getItem("loggedInUser");
+
+if (loggedInUser) {
+    window.location.replace("homepage.html");
+}
+
 function handleKeyDown(e, onKeyDownID) {
     if (e.key === "Enter") {
         return login()
